@@ -1,0 +1,3 @@
+chabot_api = Omadbek Jasurbek
+chatbot_frontend = Abdurashid
+hospital_neo4j_etl = Ilhom
