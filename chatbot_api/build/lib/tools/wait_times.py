@@ -6,19 +6,13 @@ from langchain_community.graphs import Neo4jGraph
 
 
 def _get_current_hospitals() -> list[str]:
-    """Fetch a list of current hospital names from a Neo4j database."""
     graph = Neo4jGraph(
         url=os.getenv("NEO4J_URI"),
         username=os.getenv("NEO4J_USERNAME"),
         password=os.getenv("NEO4J_PASSWORD"),
     )
 
-    current_hospitals = graph.query(
-        """
-        MATCH (h:Hospital)
-        RETURN h.name AS hospital_name
-        """
-    )
+    current_hospitals = graph.query()
 
     current_hospitals = [d["hospital_name"].lower() for d in current_hospitals]
 
